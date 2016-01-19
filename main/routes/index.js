@@ -12,6 +12,7 @@ var config = require('../../config')
 exports.index = function(req,res){
   var xs = sf(config.ckpool.logFile)
   xs.sliceReverse('-20',function(err,lines){
+    console.log(err,lines)
     if(err){
       console.log(err)
       res.render('error',{error: err.msg})
