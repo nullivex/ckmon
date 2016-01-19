@@ -11,6 +11,6 @@ var config = require('../../config')
  */
 exports.index = function(req,res){
   res.render('index',{
-    logContent: ep.execSync('tail -n 10 ' + config.ckpool.logFile)
+    logContent: cp.execSync('tail -n 10 ' + config.ckpool.logFile)
   })
 }
