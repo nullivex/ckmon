@@ -1,5 +1,5 @@
 'use strict';
-var sf = require('slice-file')
+var fs = require('fs')
 
 var config = require('../../config')
 
@@ -10,16 +10,10 @@ var config = require('../../config')
  * @param {object} res
  */
 exports.index = function(req,res){
-  var xs = sf(config.ckpool.logFile)
-  xs.sliceReverse(-20,function(err,lines){
-    console.log(err,lines)
-    if(err){
-      console.log(err)
-      res.render('error',{error: err.msg})
-    } else{
-      res.render('index',{
-        logContent: lines.join('\n')
-      })
-    }
+  var contentRaw = fs.readFileSync(config.ckpool.logFile)
+  var contentParts = contentRaw.split('^[[2K^M')
+  var content = contentParts.slice(contentParts.length,-20).join('\n')
+  res.render('index',{
+    logContent: content
   })
 }
