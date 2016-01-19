@@ -1,5 +1,5 @@
 'use strict';
-var fs = require('fs')
+var cp = require('child_process')
 
 var config = require('../../config')
 
@@ -11,6 +11,6 @@ var config = require('../../config')
  */
 exports.index = function(req,res){
   res.render('index',{
-    logContent: fs.readFileSync(config.ckpool.logFile)
+    logContent: ep.execSync('tail -n 10 ' + config.ckpool.logFile)
   })
 }
