@@ -34,6 +34,7 @@
     "nodemailer-smtp-transport": "^1.0.3",
     "object-manage": "0.8.x",
     "pretty-bytes": "^2.0.1",
+    "slice-file": "^1.0.0",
     "string": "^3.3.1",
     "validator": "^4.0.6"
   },
