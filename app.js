@@ -6,7 +6,6 @@ var lifecycle = new (require('infant').Lifecycle)()
 
 var config = require('./config')
 
-var admin = parent('./admin')
 var main = parent('./main')
 
 //setup lifecycle logging
@@ -22,23 +21,6 @@ lifecycle.on('online',function(){
 lifecycle.on('offline',function(){
   console.log('Shutdown complete')
 })
-
-
-/**
- * Admin
- */
-if(config.main.enabled){
-  lifecycle.add(
-    'admin',
-    function(next){
-      admin.start(next)
-    },
-    function(next){
-      admin.stop(next)
-    }
-  )
-}
-
 
 /**
  * Main website
