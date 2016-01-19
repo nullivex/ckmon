@@ -2,25 +2,18 @@
 var P = require('bluebird')
 var bodyParser = require('body-parser')
 var express = require('express')
-var expressSession = require('express-session')
-var flash = require('connect-flash')
 var fs = require('graceful-fs')
 var http = require('http')
 var worker = require('infant').worker
 var moment = require('moment')
 var morgan = require('morgan')
 var path = require('path')
-var S = require('string')
-var RedisStore = require('connect-redis')(expressSession)
-var URI = require('URIjs')
 
 var app = express()
 var config = require('../config')
 var routes = require('./routes')
 var server = http.createServer(app)
-var sessionStore = new RedisStore()
 
-var sequelize = require('../helpers/sequelize')()
 
 var viewFolder = __dirname + '/views'
 
