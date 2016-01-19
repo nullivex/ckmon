@@ -11,7 +11,7 @@ var config = require('../../config')
 exports.index = function(req,res){
   var contentRaw = fs.readFileSync(config.ckpool.logFile).toString()
   var contentParts = contentRaw.split('\033[2K')
-  var content = contentParts.slice(contentParts.length - 20,contentParts.length).join('\n')
+  var content = contentParts.slice(contentParts.length - 20,contentParts.length).reverse().join('\n')
   res.render('index',{
     logContent: content
   })
