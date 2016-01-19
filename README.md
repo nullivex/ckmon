@@ -1,2 +1,3 @@
 # ckmon
-Node.js Monitor for CKPool
+
+Node.js CKPool Monitor

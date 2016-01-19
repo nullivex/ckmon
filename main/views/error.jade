@@ -1,0 +1,10 @@
+extends layout
+block content
+  section
+    .container
+      h3.text-center An error occurred
+      p= message
+      div
+        strong NOTE:
+        p Please try using the back button to resubmit the form.
+  +choosePlan()
