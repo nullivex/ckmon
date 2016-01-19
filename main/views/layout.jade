@@ -13,20 +13,6 @@ html
     .navbar.navbar-fixed-top.navbar-inverse(role='navigation')
       .container
         a.navbar-brand(href='/') CKMon
-        //ul.nav.navbar-nav
-          li
-            a(href='/blog/list') Blog
-          li
-            a(href='/page/list') Pages
-          li
-            a(href='/staff/list') Staff
-        //ul.nav.navbar-nav.navbar-right
-          li.dropdown
-            a.dropdown-toggle(data-toggle='dropdown') #{user.email}
-              b.caret
-            ul.dropdown-menu
-              li
-                a(href='/logout') Logout
     //main content
     block content
     .text-center
